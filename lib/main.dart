@@ -18,4 +18,6 @@ class Person extends Equatable {
 
   @override
   List<Object?> get props => [name, age, phone];
+  @override
+  bool get stringify => true;
 }
