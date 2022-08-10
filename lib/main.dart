@@ -13,4 +13,15 @@ class Person {
   final dynamic phone;
 
   Person(this.name, this.age, this.phone);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Person &&
+          runtimeType == other.runtimeType &&
+          name == other.name &&
+          age == other.age &&
+          phone == other.phone;
+
+  @override
+  int get hashCode => name.hashCode ^ age.hashCode ^ phone.hashCode;
 }
