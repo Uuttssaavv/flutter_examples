@@ -4,6 +4,7 @@ void main() {
   const person1 = Person('Utsav', 23, 987654321);
   const person2 = Person('Ghimire', 23, 987654321);
   const person3 = Person('Utsav', 23, 987654321);
+  print(person1);
   print(person1 == person2);
   print(person1 == person3);
   print(person2 == person3);
