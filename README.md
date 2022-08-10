@@ -1,16 +1,11 @@
-# flutter_project
+# Dart: Equatable
+This branch demonstrates how to compare two objects in dart using equality operators (==) and hasCode. 
 
-A new Flutter project.
+Using equality operators(==) and hashCode is quite verbose and tedious when we need to deal with complex classes.
+So we are demonstrating Equatable package. 
 
 ## Getting Started
+Colone [this](https://github.com/Uuttssaavv/flutter_examples/tree/flutter_equatable) particular branch and run the code.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Article
+[Dart: Equatable](https://theutsavg1.medium.com/56ebd6aad9e2)
