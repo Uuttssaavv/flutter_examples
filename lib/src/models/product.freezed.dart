@@ -22,13 +22,14 @@ Product _$ProductFromJson(Map<String, dynamic> json) {
 mixin _$Product {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
   int get price => throw _privateConstructorUsedError;
-  int get discountPercentage => throw _privateConstructorUsedError;
-  int get rating => throw _privateConstructorUsedError;
+  double get discountPercentage => throw _privateConstructorUsedError;
+  double get rating => throw _privateConstructorUsedError;
   String get brand => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   String get thumbnail => throw _privateConstructorUsedError;
-  Images get images => throw _privateConstructorUsedError;
+  List<String> get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,15 +43,14 @@ abstract class $ProductCopyWith<$Res> {
   $Res call(
       {int id,
       String title,
+      String description,
       int price,
-      int discountPercentage,
-      int rating,
+      double discountPercentage,
+      double rating,
       String brand,
       String category,
       String thumbnail,
-      Images images});
-
-  $ImagesCopyWith<$Res> get images;
+      List<String> images});
 }
 
 /// @nodoc
@@ -65,6 +65,7 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? title = freezed,
+    Object? description = freezed,
     Object? price = freezed,
     Object? discountPercentage = freezed,
     Object? rating = freezed,
@@ -82,6 +83,10 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
@@ -89,11 +94,11 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
       discountPercentage: discountPercentage == freezed
           ? _value.discountPercentage
           : discountPercentage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       rating: rating == freezed
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       brand: brand == freezed
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
@@ -109,15 +114,8 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
       images: images == freezed
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as Images,
+              as List<String>,
     ));
-  }
-
-  @override
-  $ImagesCopyWith<$Res> get images {
-    return $ImagesCopyWith<$Res>(_value.images, (value) {
-      return _then(_value.copyWith(images: value));
-    });
   }
 }
 
@@ -130,16 +128,14 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
   $Res call(
       {int id,
       String title,
+      String description,
       int price,
-      int discountPercentage,
-      int rating,
+      double discountPercentage,
+      double rating,
       String brand,
       String category,
       String thumbnail,
-      Images images});
-
-  @override
-  $ImagesCopyWith<$Res> get images;
+      List<String> images});
 }
 
 /// @nodoc
@@ -155,6 +151,7 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? title = freezed,
+    Object? description = freezed,
     Object? price = freezed,
     Object? discountPercentage = freezed,
     Object? rating = freezed,
@@ -172,6 +169,10 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
@@ -179,11 +180,11 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
       discountPercentage: discountPercentage == freezed
           ? _value.discountPercentage
           : discountPercentage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       rating: rating == freezed
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       brand: brand == freezed
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
@@ -197,9 +198,9 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as String,
       images: images == freezed
-          ? _value.images
+          ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
-              as Images,
+              as List<String>,
     ));
   }
 }
@@ -210,13 +211,15 @@ class _$_Product implements _Product {
   const _$_Product(
       {required this.id,
       required this.title,
+      required this.description,
       required this.price,
       required this.discountPercentage,
       required this.rating,
       required this.brand,
       required this.category,
       required this.thumbnail,
-      required this.images});
+      required final List<String> images})
+      : _images = images;
 
   factory _$_Product.fromJson(Map<String, dynamic> json) =>
       _$$_ProductFromJson(json);
@@ -226,23 +229,29 @@ class _$_Product implements _Product {
   @override
   final String title;
   @override
+  final String description;
+  @override
   final int price;
   @override
-  final int discountPercentage;
+  final double discountPercentage;
   @override
-  final int rating;
+  final double rating;
   @override
   final String brand;
   @override
   final String category;
   @override
   final String thumbnail;
+  final List<String> _images;
   @override
-  final Images images;
+  List<String> get images {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_images);
+  }
 
   @override
   String toString() {
-    return 'Product(id: $id, title: $title, price: $price, discountPercentage: $discountPercentage, rating: $rating, brand: $brand, category: $category, thumbnail: $thumbnail, images: $images)';
+    return 'Product(id: $id, title: $title, description: $description, price: $price, discountPercentage: $discountPercentage, rating: $rating, brand: $brand, category: $category, thumbnail: $thumbnail, images: $images)';
   }
 
   @override
@@ -252,6 +261,8 @@ class _$_Product implements _Product {
             other is _$_Product &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.price, price) &&
             const DeepCollectionEquality()
                 .equals(other.discountPercentage, discountPercentage) &&
@@ -259,7 +270,7 @@ class _$_Product implements _Product {
             const DeepCollectionEquality().equals(other.brand, brand) &&
             const DeepCollectionEquality().equals(other.category, category) &&
             const DeepCollectionEquality().equals(other.thumbnail, thumbnail) &&
-            const DeepCollectionEquality().equals(other.images, images));
+            const DeepCollectionEquality().equals(other._images, _images));
   }
 
   @JsonKey(ignore: true)
@@ -268,13 +279,14 @@ class _$_Product implements _Product {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(price),
       const DeepCollectionEquality().hash(discountPercentage),
       const DeepCollectionEquality().hash(rating),
       const DeepCollectionEquality().hash(brand),
       const DeepCollectionEquality().hash(category),
       const DeepCollectionEquality().hash(thumbnail),
-      const DeepCollectionEquality().hash(images));
+      const DeepCollectionEquality().hash(_images));
 
   @JsonKey(ignore: true)
   @override
@@ -293,13 +305,14 @@ abstract class _Product implements Product {
   const factory _Product(
       {required final int id,
       required final String title,
+      required final String description,
       required final int price,
-      required final int discountPercentage,
-      required final int rating,
+      required final double discountPercentage,
+      required final double rating,
       required final String brand,
       required final String category,
       required final String thumbnail,
-      required final Images images}) = _$_Product;
+      required final List<String> images}) = _$_Product;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
 
@@ -308,11 +321,13 @@ abstract class _Product implements Product {
   @override
   String get title;
   @override
+  String get description;
+  @override
   int get price;
   @override
-  int get discountPercentage;
+  double get discountPercentage;
   @override
-  int get rating;
+  double get rating;
   @override
   String get brand;
   @override
@@ -320,7 +335,7 @@ abstract class _Product implements Product {
   @override
   String get thumbnail;
   @override
-  Images get images;
+  List<String> get images;
   @override
   @JsonKey(ignore: true)
   _$$_ProductCopyWith<_$_Product> get copyWith =>
