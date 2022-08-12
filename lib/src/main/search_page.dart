@@ -13,7 +13,6 @@ class SearchPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final productState = ref.watch(productNotifierProvider);
     final notifier = ref.watch(productNotifierProvider.notifier);
-
     final products = productState.products;
     return Scaffold(
       appBar: AppBar(
@@ -50,11 +49,17 @@ class SearchPage extends ConsumerWidget {
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : ListView.separated(
-              separatorBuilder: (_, __) => const Divider(),
-              itemCount: products.length,
-              itemBuilder: (_, index) => ProductTile(product: products[index]),
-            ),
+          : products.isEmpty
+              ? const Center(
+                  child: Text('No products found'),
+                )
+              : ListView.separated(
+                  separatorBuilder: (_, __) => const Divider(),
+                  itemCount: products.length,
+                  itemBuilder: (_, index) => ProductTile(
+                    product: products[index],
+                  ),
+                ),
     );
   }
 }
