@@ -13,4 +13,14 @@ class ProductService {
     var response = await apiService.dio.get('/products');
     return response.data;
   }
+
+  Future<dynamic> searchProducts(String query) async {
+    var response = await apiService.dio.get(
+      '/products/search',
+      queryParameters: {
+        'q': query,
+      },
+    );
+    return response.data;
+  }
 }

@@ -28,14 +28,27 @@ class ProductNotifier extends StateNotifier<ProductState> {
 
   void loadProducts() async {
     state = state.copyWith(isLoading: true);
-    //fetch products
     final responseBody = await _service.fetchProducts();
-    print(responseBody['products']);
     final List<Product> products = [];
     for (var product in responseBody['products']) {
       products.add(Product.fromJson(product));
     }
 
     state = state.copyWith(isLoading: false, products: products);
+  }
+
+  void searchProducts(String query) async {
+    state = state.copyWith(isLoading: true, products: []);
+    final responseBody = await _service.searchProducts(query);
+    final List<Product> products = [];
+    for (var product in responseBody['products']) {
+      products.add(Product.fromJson(product));
+    }
+
+    state = state.copyWith(isLoading: false, products: products);
+  }
+
+  void initSearch() async {
+    state = state.copyWith(isLoading: false, products: []);
   }
 }
